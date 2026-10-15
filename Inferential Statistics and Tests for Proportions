@@ -1,0 +1,24 @@
+#simulation of sample proportions
+import numpy as np: import seaborn as sns
+from sklearn.utils import resample
+p = .25 # true population proportion
+N = 250000000; # population size
+n = 3496; # sample size 
+numsamples = 2000# number of samples in the population
+numYes= p*N;
+numNo = (1-p)*N;
+print('numYes, numNo={:.1f},{:1f.}'.format(numYes,numNo)
+possible_entries = np.concatenate((np.repeat(1,numYes),np.repeat(0,.numNO)))
+pv=np.repeat(0.0,numsamples)#sample proportions
+for j in range (numsamples);
+#resample below produces a SIMPLE RANDOM SAMPLE
+onesample = resample (possible_entries,n_samples=n,replace=True)
+pv[j] = np.sum(onesample ==1)/n
+sns.histplot(pv,bins=14) # create a histogram of sample proportions
+pvbar = np.mean(pv); # mean of sample proportion
+pvsd1 = np.std(pv,ddof=1); # standard deviation of sample proportion
+print('pvbar,pvsd1 = {:.4f},{:4f}'.format(pvbar,pvsd1))
+
+
+
+
